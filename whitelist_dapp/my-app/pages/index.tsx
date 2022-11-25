@@ -15,7 +15,9 @@ export default function Home() {
   // numberOfWhitelisted tracks the number of addresses's whitelisted
   const [numberOfWhitelisted, setNumberOfWhitelisted] = useState(0);
   // Create a reference to the Web3 Modal (used for connecting to Metamask) which persists as long as the page is open
-  const web3ModalRef = useRef();
+
+  // NOTICE THE ANY !!!!!!!!!!!!!!
+  const web3ModalRef: any = useRef();
 
   /**
    * Returns a Provider or Signer object representing the Ethereum RPC with or without the
@@ -109,7 +111,7 @@ export default function Home() {
       // We will need the signer later to get the user's address
       // Even though it is a read transaction, since Signers are just special kinds of Providers,
       // We can use it in it's place
-      const signer = await getProviderOrSigner(true);
+      const signer: any = await getProviderOrSigner(true);
       const whitelistContract = new Contract(
         WHITELIST_CONTRACT_ADDRESS,
         abi,
