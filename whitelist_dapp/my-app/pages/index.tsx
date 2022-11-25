@@ -111,6 +111,7 @@ export default function Home() {
       // We will need the signer later to get the user's address
       // Even though it is a read transaction, since Signers are just special kinds of Providers,
       // We can use it in it's place
+      // NOTICE THE ANY IN SIGNER !!!!!!!!!!!!!!
       const signer: any = await getProviderOrSigner(true);
       const whitelistContract = new Contract(
         WHITELIST_CONTRACT_ADDRESS,
