@@ -19,7 +19,7 @@ export default function Home() {
   // tokenIdsMinted keeps track of the number of tokenIds that have been minted
   const [tokenIdsMinted, setTokenIdsMinted] = useState("0");
   // Create a reference to the Web3 Modal (used for connecting to Metamask) which persists as long as the page is open
-  const web3ModalRef = useRef();
+  const web3ModalRef: any = useRef();
 
   /**
    * presaleMint: Mint an NFT during the presale
@@ -180,13 +180,13 @@ export default function Home() {
       // call the owner function from the contract
       const _owner = await nftContract.owner();
       // We will get the signer now to extract the address of the currently connected MetaMask account
-      const signer = await getProviderOrSigner(true);
+      const signer: any = await getProviderOrSigner(true);
       // Get the address associated to the signer which is connected to  MetaMask
       const address = await signer.getAddress();
       if (address.toLowerCase() === _owner.toLowerCase()) {
         setIsOwner(true);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err.message);
     }
   };
@@ -259,7 +259,7 @@ export default function Home() {
       connectWallet();
 
       // Check if presale has started and ended
-      const _presaleStarted = checkIfPresaleStarted();
+      const _presaleStarted: any  = checkIfPresaleStarted();
       if (_presaleStarted) {
         checkIfPresaleEnded();
       }
