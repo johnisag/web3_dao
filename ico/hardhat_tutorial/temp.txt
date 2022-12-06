@@ -1,0 +1,2 @@
+Crypto Devs Token Contract Address: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+Crypto Devs Token Contract Address: 0x3C807c8B07985B5B21a18Eb2BD9BCf71a3c386b2 (second deploy)
