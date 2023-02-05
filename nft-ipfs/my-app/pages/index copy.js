@@ -1,5 +1,5 @@
 import Web3Modal from "web3modal";
-import { Contract, ethers, parseEther } from "ethers";
+import { Contract, providers, utils } from "ethers";
 import Head from "next/head";
 import React, { useEffect, useRef, useState } from "react";
 import { abi, NFT_CONTRACT_ADDRESS } from "../constants";
@@ -23,7 +23,6 @@ export default function Home() {
       console.log("Public mint");
       // We need a Signer here since this is a 'write' transaction.
       const signer = await getProviderOrSigner(true);
-      console.log(signer);
       // Create a new instance of the Contract with a Signer, which allows
       // update methods
       const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi, signer);
@@ -31,7 +30,7 @@ export default function Home() {
       const tx = await nftContract.mint({
         // value signifies the cost of one LW3Punks which is "0.01" eth.
         // We are parsing `0.01` string to ether using the utils library from ethers.js
-        value: parseEther("0.01"),
+        value: utils.parseEther("0.01"),
       });
       setLoading(true);
       // wait for the transaction to get mined
@@ -75,7 +74,6 @@ export default function Home() {
       setTokenIdsMinted(_tokenIds.toString());
     } catch (err) {
       console.error(err);
-      //console.log(err);
     }
   };
 
@@ -95,21 +93,13 @@ export default function Home() {
     // Connect to Metamask
     // Since we store `web3Modal` as a reference, we need to access the `current` value to get access to the underlying object
     const provider = await web3ModalRef.current.connect();
-    const web3Provider = new ethers.BrowserProvider(provider);
-
-    console.log("try parse");
-    const mv = parseEther("0.01");
-    console.log(mv);
-    console.log("end try parse");
+    const web3Provider = new providers.Web3Provider(provider);
 
     // If user is not connected to the Mumbai network, let them know and throw an error
-    //const current_network =
     const { chainId } = await web3Provider.getNetwork();
-    //console.log(typeof chainId);
-    if (chainId !== BigInt(80001)) {
-      console.log("Change the network to Mumbai");
-      console.log(chainId);
-      //throw new Error("Change network to Mumbai");
+    if (chainId !== 80001) {
+      window.alert("Change the network to Mumbai");
+      throw new Error("Change network to Mumbai");
     }
 
     if (needSigner) {
