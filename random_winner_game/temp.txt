@@ -1,0 +1,6 @@
+graph init --contract-name RandomWinnerGame --product hosted-service johnisag/ia_learnweb3  --from-contract 0x0D02e17beaD7F3169Fb84437689E0813A1bd163B  --abi ./abi.json --network mumbai graph
+
+
+
+Build completed: Qmf3z2Lxw6e8B74oUZDpwL3BpaPT4Fvy5oDVG3EYbH4rP9
+Deployed to https://thegraph.com/explorer/subgraph/johnisag/ia_learnweb3
