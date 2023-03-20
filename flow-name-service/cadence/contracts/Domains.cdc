@@ -55,6 +55,8 @@ pub contract Domains: NonFungibleToken {
     emit ContractInitialized()
   }
 
+  // NFT
+  //----
   pub struct DomainInfo {
     pub let id: UInt64
     pub let owner: Address
@@ -166,6 +168,8 @@ pub contract Domains: NonFungibleToken {
     }
   }
 
+  // COLLECTION
+  //------------
   pub resource interface CollectionPublic {
     pub fun borrowDomain(id: UInt64): &{Domains.DomainPublic}
   }
@@ -261,6 +265,9 @@ pub contract Domains: NonFungibleToken {
     }
   }
 
+
+  // REGISTAR
+  //------------
   pub resource interface RegistrarPublic {
     pub let minRentDuration: UFix64
     pub let maxDomainLength: Int

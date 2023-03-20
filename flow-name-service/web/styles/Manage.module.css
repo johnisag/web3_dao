@@ -1,5 +1,5 @@
 .container {
-  background-color: #dddfeb;
+  background-color: #171923;
   min-height: 100vh;
 }
 
@@ -17,7 +17,8 @@
 .domainInfo {
   padding: 2em;
   color: antiquewhite;
-  background-color: rgb(211, 236, 236);
+  background-color: darkslategray;
   border-radius: 2em;
+  cursor: pointer;
   max-width: 65ch;
 }
