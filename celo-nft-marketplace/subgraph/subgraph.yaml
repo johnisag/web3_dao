@@ -8,7 +8,7 @@ dataSources:
     source:
       address: "0xd6275a9c30eB83e126F622285D832D9c4105A489"
       abi: NFTMarketplace
-      startBlock: 0
+      startBlock: 16895992
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
